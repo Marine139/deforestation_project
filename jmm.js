@@ -26,11 +26,18 @@ function sphericalToCartesian(r,θ,ϕ){
 }
 sphericalToCartesian(25,10,12);
 
+// taille canvas
+var illoElem = document.querySelector('.zdog-canvas');
+var illoSize = 145;
+var minWindowSize = Math.min( window.innerWidth, window.innerHeight );
+var zoom = Math.floor( minWindowSize / illoSize );
+illoElem.setAttribute( 'width', illoSize * zoom );
+illoElem.setAttribute( 'height', illoSize * zoom );
 
 // create illo
 const illo = new Zdog.Illustration({
-  element: '.zdog-canvas',
-  zoom: 4,
+  element: illoElem,
+  zoom: zoom,
   rotate: { y: -TAU/4 },
   dragRotate: true,
 });

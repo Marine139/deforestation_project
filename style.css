@@ -1,29 +1,42 @@
+html { height: 100%; }
+body {
+    min-height: 100%;
+    flex-direction: column;
+    background-image: url("galaxy.jpg");
+    background-color: #CCCCCC;
+    background-position: center;
+    background-repeat: repeat;            
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Codystar', cursive;
+  }
+
 h1 {
     color:#cae1d1
     ;
     text-align:center;
-    font-family: 'Codystar', cursive;
+    margin-top: 55px;
 }
 h2 {
     color:#66FF66;
     text-align:center;
-    font-family:'Codystar', cursive; 
     margin-top:3rem;
 }
-body {
-    background-image: url("galaxy.jpg");
-    background-color: #CCCCCC;
-    height: 700px;
-    background-position: center;
-    background-repeat: repeat;            
-    background-size: cover;
-    position: relative;
-  }
 
-canvas {
-   /* margin-top:1rem;*/
+
+.zdog-canvas {
+    display: block;
 }
 
+audio { 
+    position: absolute;
+    left:5px;
+    top:5px;
+
+}
 button {
     margin:0 auto;
     margin-top:3rem;

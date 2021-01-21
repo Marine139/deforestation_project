@@ -19,3 +19,27 @@ body {
     background-size: cover;
     position: relative;
   }
+
+canvas {
+   /* margin-top:1rem;*/
+}
+
+button {
+margin:0 auto;
+margin-top:3rem;
+display:block;
+text-align: center;
+/*background-color: #7b38d8;
+border-radius: 10px;
+border: 4px double #cccccc;
+color: #eeeeee;
+font-size: 28px;
+padding: 20px;
+width: 200px;
+-webkit-transition: all 0.5s;
+-moz-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+cursor: pointer;
+margin: 5px;*/
+}

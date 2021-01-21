@@ -9,7 +9,6 @@ var x = setInterval(function() {
 
   // Find the distance between now and the count down date
   var distance = ~~((nowTime-connectionTime)/1000);
-  document.getElementById("demo").innerHTML = distance
   document.getElementById('output').innerHTML =distance
 
 }, 1000);
@@ -23,20 +22,15 @@ function sphericalToCartesian(r,θ,ϕ){
   y=r*Math.sin(ϕ)*Math.sin(θ);
   z=r*Math.cos(ϕ);
   let cord=[x,y,z];
-  //console.log(cord[0]);
   return cord;
 }
 sphericalToCartesian(25,10,12);
 
-// Made with Zdog
-const offWhite = '#FED';
-const gold = '#EA0';
-const garnet = '#C25';
-const eggplant = '#636';
+
 // create illo
 const illo = new Zdog.Illustration({
   element: '.zdog-canvas',
-  zoom: 5,
+  zoom: 4,
   rotate: { y: -TAU/4 },
   dragRotate: true,
 });
@@ -86,15 +80,6 @@ let mouth = new Zdog.Ellipse({
 });
 
 
-// update & render
-illo.updateRenderGraph();
-function animate() {
-  illo.updateRenderGraph();
-  requestAnimationFrame( animate );
-}
-animate();
-
-
 // let the trees begin
 function trees(angle1,angle2){
   let anchor = new Zdog.Anchor({
@@ -129,25 +114,50 @@ function trees(angle1,angle2){
   return anchor3;
 }
 // loops to put the trees on the earth
-let coord= sphericalToCartesian(25,0,0);
+
 let arbres=[];
 
 for (let i=0; i<360;i=i+30){
   for (let j=0; j<360;j=j+30){
-    coord= sphericalToCartesian(25,j,i);
     arbres.push(trees(j*TAU/360,i*TAU/360));
   }
 }
 
 let iterator = arbres.values();
-for (let arbres of iterator) {
-  for (let i=0; i<1000;i=i+1){
-    setTimeout(function(){arbres.translate={z:i+25}},1000);
+for (let arbre of iterator) {
+  for (let i=0; i<25;i=i+1){
+    setTimeout(function(){arbre.translate={z:i+25}},i*1000); 
   }
 }
+
+
+// plant one tree random
+function plantTree(){
+  let randomTree=Math.floor(Math.random()*arbres.length);
+  arbres[randomTree].translate={z:25};
+ }
+
+
+
+// update & render
 
 function animate() {
   illo.updateRenderGraph();
   requestAnimationFrame( animate );
 }
 animate();
+
+// Event Button
+let btn = document.getElementById("bouton");
+console.log(btn);
+
+let  numberalerte = 0;
+btn.addEventListener("click", function() {
+  if (numberalerte==0) {
+    alert("Félicitation vous venez de replanter un arbre sur la terre!\nVotre action permettra de sauvegarder la forêt!");
+    plantTree();
+    numberalerte++;
+} else {
+    plantTree();
+  }
+})

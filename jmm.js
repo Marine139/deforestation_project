@@ -130,13 +130,15 @@ for (let i=0; i<360;i=i+30){
   }
 }
 
+let countArbre=0;
 let iterator = arbres.values();
 for (let arbre of iterator) {
   for (let i=0; i<25;i=i+1){
     setTimeout(function(){arbre.translate={z:i+25}},i*1000); 
+    countArbre++;
   }
 }
-
+console.log(countArbre);
 
 // plant one tree random
 function plantTree(){

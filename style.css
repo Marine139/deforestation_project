@@ -4,8 +4,7 @@ body {
     flex-direction: column;
     background-image: url("galaxyvdef.jpg");
     background-color: #CCCCCC;
-    background-position: x y, x y;
-    background-repeat:no-repeat;      
+    background-repeat:repeat;      
     background-size: cover;
     margin: 0;
     display: flex;

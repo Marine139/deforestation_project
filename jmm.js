@@ -123,19 +123,18 @@ function trees(angle1,angle2){
 // loops to put the trees on the earth
 
 let arbres=[];
-
-for (let i=0; i<360;i=i+30){
+let countArbre=0;
+for (let i=0; i<180;i=i+30){
   for (let j=0; j<360;j=j+30){
     arbres.push(trees(j*TAU/360,i*TAU/360));
+    countArbre++;
   }
 }
 
-let countArbre=0;
 let iterator = arbres.values();
 for (let arbre of iterator) {
-  for (let i=0; i<25;i=i+1){
+  for (let i=0; i<30;i=i+1){
     setTimeout(function(){arbre.translate={z:i+25}},i*1000); 
-    countArbre++;
   }
 }
 console.log(countArbre);

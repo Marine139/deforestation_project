@@ -13,6 +13,7 @@ var x = setInterval(function() {
 
 }, 1000);
 
+var isSpinning = true;
 const TAU = Zdog.TAU;
 // function to translate from spherical to cartesian
 function sphericalToCartesian(r,θ,ϕ){
@@ -40,6 +41,9 @@ const illo = new Zdog.Illustration({
   zoom: zoom,
   rotate: { y: -TAU/4 },
   dragRotate: true,
+  onDragStart: function() {
+    isSpinning = false;
+  },
 });
 
 // creation of the earth using Shape
@@ -150,6 +154,7 @@ function plantTree(){
 // update & render
 
 function animate() {
+  illo.rotate.y += isSpinning ? -0.01 : 0;
   illo.updateRenderGraph();
   requestAnimationFrame( animate );
 }

@@ -29,6 +29,10 @@ h2 {
 .zdog-canvas {
     display: block;
 }
+.zdog-canvas:hover {
+    cursor: grab;
+}
+
 
 audio { 
     position: absolute;
